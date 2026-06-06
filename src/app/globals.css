@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #020409;
+  --foreground: #e2e8f0;
+  
+  /* Viking AI Color System */
+  --viking-primary: #00d4ff;
+  --viking-secondary: #7c3aed;
+  --viking-accent: #10b981;
+  --viking-danger: #ef4444;
+  --viking-warning: #f59e0b;
+  --viking-gold: #fbbf24;
+  
+  /* Glow colors */
+  --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.5);
+  --glow-purple: 0 0 20px rgba(124, 58, 237, 0.5);
+  --glow-green: 0 0 20px rgba(16, 185, 129, 0.5);
+  
+  /* Dark surfaces */
+  --surface-0: #020409;
+  --surface-1: #060d1a;
+  --surface-2: #0a1628;
+  --surface-3: #0f1f38;
+  --surface-4: #1a2d4a;
+  
+  /* Grid line color */
+  --grid-color: rgba(0, 212, 255, 0.06);
+  --border-color: rgba(0, 212, 255, 0.15);
+  --border-glow: rgba(0, 212, 255, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--surface-0);
+  color: var(--foreground);
+  font-family: 'Rajdhani', 'Share Tech Mono', monospace;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb { 
+  background: var(--viking-primary); 
+  border-radius: 3px;
+  box-shadow: var(--glow-cyan);
+}
+
+/* ==================== SELECTION ==================== */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #fff;
+}
+
+/* ==================== KEYFRAME ANIMATIONS ==================== */
+
+@keyframes roboScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes roboGlitch {
+  0%, 100% { clip-path: inset(0 0 95% 0); }
+  20% { clip-path: inset(30% 0 40% 0); transform: translate(-3px, 0); }
+  40% { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
+  60% { clip-path: inset(10% 0 75% 0); transform: translate(-2px, 0); }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+}
+
+@keyframes roboPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--viking-primary); }
+  50% { opacity: 0.6; box-shadow: 0 0 30px var(--viking-primary), 0 0 60px var(--viking-primary); }
+}
+
+@keyframes robotWalk {
+  0%, 100% { transform: translateY(0px); }
+  25% { transform: translateY(-4px) rotate(1deg); }
+  75% { transform: translateY(-2px) rotate(-1deg); }
+}
+
+@keyframes dataFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+@keyframes scanLine {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotateGear {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateGearReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes orbitDot {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes hologramFlicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.4; }
+  94% { opacity: 1; }
+  96% { opacity: 0.7; }
+  97% { opacity: 1; }
+}
+
+@keyframes circuitTrace {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes waveform {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes countUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(2deg); }
+  66% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+@keyframes hexagonSpin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100px) translateX(50px) rotate(180deg); opacity: 0; }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 10px var(--viking-primary), 0 0 20px var(--viking-primary), 0 0 40px var(--viking-primary);
+  }
+  20%, 24%, 55% { text-shadow: none; }
+}
+
+@keyframes radar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loadingBar {
+  0% { width: 0%; left: 0; }
+  50% { width: 100%; left: 0; }
+  100% { width: 0%; left: 100%; }
+}
+
+@keyframes energyPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@keyframes morphBlob {
+  0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60%/40% 50% 60% 50%; }
+  75% { border-radius: 60% 40% 70% 30%/40% 60% 40% 60%; }
+  100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounceX {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+
+.font-orbitron { font-family: 'Orbitron', monospace; }
+.font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+.font-mono-tech { font-family: 'Share Tech Mono', monospace; }
+
+.text-glow-cyan {
+  color: var(--viking-primary);
+  text-shadow: 0 0 10px var(--viking-primary), 0 0 20px var(--viking-primary);
+}
+
+.text-glow-purple {
+  color: #a78bfa;
+  text-shadow: 0 0 10px #7c3aed, 0 0 20px #7c3aed;
+}
+
+.text-glow-green {
+  color: var(--viking-accent);
+  text-shadow: 0 0 10px var(--viking-accent);
+}
+
+.border-glow-cyan {
+  border-color: var(--viking-primary);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3), inset 0 0 15px rgba(0, 212, 255, 0.05);
+}
+
+.border-glow-purple {
+  border-color: #7c3aed;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.3), inset 0 0 15px rgba(124, 58, 237, 0.05);
+}
+
+.bg-grid {
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+.glass-card {
+  background: rgba(6, 13, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-card-hover:hover {
+  border-color: var(--viking-primary);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.animate-roboPulse { animation: roboPulse 2s ease-in-out infinite; }
+.animate-roboFloat { animation: float 4s ease-in-out infinite; }
+.animate-roboSpin { animation: rotateGear 8s linear infinite; }
+.animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
+.animate-hologram { animation: hologramFlicker 8s infinite; }
+.animate-neonFlicker { animation: neonFlicker 5s infinite; }
+.animate-shimmer { 
+  background: linear-gradient(90deg, transparent 20%, rgba(0,212,255,0.2) 50%, transparent 80%);
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Corner decoration */
+.corner-tl::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 20px; height: 20px;
+  border-top: 2px solid var(--viking-primary);
+  border-left: 2px solid var(--viking-primary);
+}
+
+.corner-br::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 20px; height: 20px;
+  border-bottom: 2px solid var(--viking-primary);
+  border-right: 2px solid var(--viking-primary);
+}
+
+/* Scan line effect */
+.scan-line::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--viking-primary), transparent);
+  animation: scanLine 3s linear infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* HUD corner brackets */
+.hud-bracket {
+  position: relative;
+}
+
+.hud-bracket::before,
+.hud-bracket::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+
+.hud-bracket::before {
+  top: -2px; left: -2px;
+  border-top: 2px solid var(--viking-primary);
+  border-left: 2px solid var(--viking-primary);
+}
+
+.hud-bracket::after {
+  bottom: -2px; right: -2px;
+  border-bottom: 2px solid var(--viking-primary);
+  border-right: 2px solid var(--viking-primary);
+}
+
+/* Energy bar */
+.energy-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--viking-primary), var(--viking-secondary), var(--viking-accent));
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Dot grid pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(0,212,255,0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .font-orbitron { font-size: 0.85em; }
+}
